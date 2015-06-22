@@ -101,7 +101,7 @@ For example:
 
 <h3                                                               id="/as"><pre>
 --inject as &lt;marker name&gt;
-</pre></h4>
+</pre></h3>
 
 Apart from the [default markers][markers] you can have named markers. This way you can inject different docs at different places.
 
@@ -116,7 +116,7 @@ Then inject your docs:
 
 <h3                                                             id="/into"><pre>
 --inject into &lt;target document&gt;
-</pre></h4>
+</pre></h3>
 
 By default we’ll inject your docs into `README.md`, `Readme.md`, or `readme.md` in the current working directory. But if you want another target, no problem:
 
