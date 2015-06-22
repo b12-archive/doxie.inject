@@ -162,7 +162,6 @@ inject({input, [as]})
 **Return value:**
 
 * **[`plugin`](#/plugin)**  
-  <sup>type: Function</sup>  
   Pass this to *[doxie-core][]*.
 
 
@@ -174,7 +173,7 @@ plugin(…)
 **Output properties:**
 
 * **`['doxie.render'].output`**  
-  <sup>type: String</sup>  
+  <sup>type: `String`</sup>  
   The resulting content of the readme – with your docs injected.
 
 * **`…`**  
