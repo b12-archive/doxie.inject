@@ -233,13 +233,6 @@ doxie([
 ```
 
 
-**Note:**
-
-Keep in mind that when you call *doxie-core* with the plugin, it will modify the `Readme.md` [or some other file](#/into). If you don’t want side-effects, look into [`doxie --output`][].
-
-[`doxie --output`]:  http://npm.im/doxie.output
-
-
 
 
 License
