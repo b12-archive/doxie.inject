@@ -66,9 +66,13 @@ Usage
 -----
 
 
+*&nbsp;*
+
 <a                                               id="/usage/write-a-readme"></a>
 **Write a readme** or some other document in Markdown or HTML. Put the markers `<!-- @doxie.inject start -->` and `<!-- @doxie.inject end -->` somewhere in it.
 
+
+*&nbsp;*
 
 **Profit!** Render your docs with `doxie` – we’ll use [`doxie --render`] for that. Then `--inject` them into your readme.
 
@@ -82,6 +86,8 @@ We’ll join your docs into one string and replace all content between the [mark
 [markers]:           #/usage/write-a-readme
 
 
+*&nbsp;*
+
 **Options!** You can set things up with options:
 
     $ doxie --inject( <option> <argument>)*
@@ -90,6 +96,8 @@ For example:
 
     $ doxie --inject as public into 'My docs.md'
 
+
+*&nbsp;*
 
 <h3                                                               id="/as"><pre>
 --inject as &lt;marker name&gt;
@@ -103,6 +111,8 @@ Then inject your docs:
 
     $ doxie --inject as my-marker
 
+
+*&nbsp;*
 
 <h3                                                             id="/into"><pre>
 --inject into &lt;target document&gt;
