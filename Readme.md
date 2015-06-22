@@ -142,14 +142,13 @@ $ npm install doxie-core doxie.inject
 
 Use it like this:
 
-<h3><pre>
+
+<h3                                                           id="/inject"><pre>
 inject({input, [as]})
   → plugin
-    → {['doxie.render']: {output}, …}
 </pre></h3>
 
-
-**Parameter properties:**
+**Input properties:**
 
 * **`input`**  
   <sup>type: String • required</sup>  
@@ -160,7 +159,19 @@ inject({input, [as]})
   Same as `--inject as <marker name>`.
 
 
-**`plugin` return properties:**
+**Return value:**
+
+* **[`plugin`](#/plugin)**  
+  <sup>type: Function</sup>  
+  Pass this to *[doxie-core][]*.
+
+
+<h3                                                           id="/plugin"><pre>
+plugin(…)
+  → {['doxie.render']: {output}, …}
+</pre></h3>
+
+**Output properties:**
 
 * **`['doxie.render'].output`**  
   <sup>type: String</sup>  
