@@ -104,6 +104,10 @@ Read on!
 Options
 -------
 
+
+&nbsp;
+
+
 <h3                                                               id="/as"><pre>
 --inject as &lt;marker name&gt;
 </pre></h3>
@@ -129,6 +133,9 @@ By default we’ll inject your docs into `README.md`, `Readme.md`, or `readme.md
     $ doxie --inject into ./documentation/my-docs.html
 
 
+&nbsp;
+
+
 
 
 Programmatic usage
@@ -144,6 +151,9 @@ $ npm install doxie-core doxie.inject
 
 
 Use it like this:
+
+
+&nbsp;
 
 
 <h3                                                           id="/inject"><pre>
@@ -237,6 +247,9 @@ doxie([
 //  }
 
 ```
+
+
+&nbsp;
 
 
 
