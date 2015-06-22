@@ -23,7 +23,7 @@ doxie --inject
 
 
 A plugin for *[doxie][]*.  
-**Inject rendered comments into your readme.**
+**Join rendered docs and inject them into your readme.**
 
 [doxie]:  https://github.com/studio-b12/doxie
 
@@ -61,7 +61,132 @@ $ npm install doxie.inject
 Usage
 -----
 
-…
+###  Install  ###
+
+`doxie --inject` is a plugin for the command-line tool *[doxie][]*. Most plugins work well with *[dox][]* data. Install all three if you haven’t already:
+
+```sh
+$ npm install --global dox doxie doxie.inject
+```
+
+[dox]:               http://npm.im/dox
+
+
+<a                                               id="/usage/write-a-readme"></a>
+###  Write a readme…  ###
+
+…or some other document in Markdown or HTML. Put the markers `&lt;!-- @doxie.inject start -->` and `&lt;!-- @doxie.inject end -->` somewhere in it.
+
+
+###  Profit!  ###
+
+Render your docs with `doxie` – we’ll use [`doxie --render`] for that. Then `--inject` them into your readme.
+
+```sh
+$ dox | doxie --render --inject
+```
+
+We’ll join your docs into one string and replace all content between the [markers][] with that string.
+
+[`doxie --render`]:  http://npm.im/doxie.render
+[markers]:           #/usage/write-a-readme
+
+
+###  Options  ###
+
+You can customize things with options:
+
+    $ doxie --inject( <option> <argument>)*
+
+For example:
+
+    $ doxie --inject as public into 'My docs.md'
+
+
+<h4                                                               id="/as"><pre>
+--inject as &lt;marker name>
+</pre></h4>
+
+Apart from the [default markers][markers] you can have named markers. This way you can inject different docs at different places.
+
+Put them in your readme: <code>&lt;!-- @doxie.inject start <b>my-marker</b> --></code> and <code>&lt;!-- @doxie.inject end <b>my-marker</b> --></code>.
+
+Then inject your docs:
+
+    $ doxie --inject as my-marker
+
+
+<h4                                                             id="/into"><pre>
+--inject into &lt;target document>
+</pre></h4>
+
+By default we’ll inject your docs into `README.md`, `Readme.md`, or `readme.md` in the current working directory. But if you want another target, no problem:
+
+    $ doxie --inject into ./documentation/my-docs.html
+
+
+
+
+Programmatic usage
+------------------
+
+You can use `doxie.inject` directly with *[doxie-core][]*. Install both if you haven’t already:
+
+```sh
+$ npm install doxie-core doxie.inject
+```
+
+[doxie-core]:        http://npm.im/doxie-core
+
+
+Use it like this:
+
+<h3><pre>
+inject([{as, into, cwd}])
+  → plugin
+</pre></h3>
+
+
+**Options:**
+
+* **`as`**  
+  *type: String|null*  
+  *default: `null`*  
+  Same as `--inject as &lt;marker name>`
+
+* **`into`**  
+  *type: String|null*  
+  *default: `null`*  
+  Same as `--inject into &lt;target document>`
+
+* **`cwd`**  
+  *type: String*  
+  *default: `process.cwd()`*  
+  If the target document’s path is relative, we’ll look for it here.
+
+
+**Example:**
+
+```js
+const doxie = require('doxie-core');
+const render = require('doxie.render');
+const inject = require('doxie.inject');
+
+doxie([
+  render(require('./.doxie.render.js')),
+  inject({
+    as: 'my-marker',
+    into: './My docs.md',
+  }),
+])([/* my docs’ data */]);
+```
+
+
+**Note:**
+
+Keep in mind that when you call *doxie-core* with the plugin, it will modify the `Readme.md` [or some other file](#/into). If you don’t want side-effects, look into [`doxie --output`][].
+
+[`doxie --output`]:  http://npm.im/doxie.output
 
 
 
