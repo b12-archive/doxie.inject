@@ -103,9 +103,9 @@ For example:
     $ doxie --inject as public into 'My docs.md'
 
 
-<h4                                                               id="/as"><pre>
+<h4                                                            id="/as"><pre><b>
 --inject as &lt;marker name&gt;
-</pre></h4>
+</b></pre></h4>
 
 Apart from the [default markers][markers] you can have named markers. This way you can inject different docs at different places.
 
@@ -116,9 +116,9 @@ Then inject your docs:
     $ doxie --inject as my-marker
 
 
-<h4                                                             id="/into"><pre>
+<h4                                                          id="/into"><pre><b>
 --inject into &lt;target document&gt;
-</pre></h4>
+</b></pre></h4>
 
 By default we’ll inject your docs into `README.md`, `Readme.md`, or `readme.md` in the current working directory. But if you want another target, no problem:
 
@@ -150,18 +150,18 @@ inject([{as, into, cwd}])
 **Options:**
 
 * **`as`**  
-  *type: String|null*  
-  *default: `null`*  
+  <sup>type: String|null</sup>  
+  <sup>default: `null`</sup>  
   Same as `--inject as <marker name>`
 
 * **`into`**  
-  *type: String|null*  
-  *default: `null`*  
+  <sup>type: String|null</sup>  
+  <sup>default: `null`</sup>  
   Same as `--inject into <target document>`
 
 * **`cwd`**  
-  *type: String*  
-  *default: `process.cwd()`*  
+  <sup>type: String</sup>  
+  <sup>default: `process.cwd()`</sup>  
   If the target document’s path is relative, we’ll look for it here.
 
 
