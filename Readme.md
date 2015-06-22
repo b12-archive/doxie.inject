@@ -172,6 +172,7 @@ doxie([
   inject({
     as: 'my-marker',
     into: './My docs.md',
+    cwd: __dirname,
   }),
 ])([/* my docs’ data */]);
 ```
