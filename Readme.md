@@ -148,19 +148,16 @@ inject([{as, into, cwd}])
 **Options:**
 
 * **`as`**  
-  <sup>type: String|null</sup>  
-  <sup>default: `null`</sup>  
-  Same as `--inject as <marker name>`
+  Same as `--inject as <marker name>`  
+  <sup>type: String|null   •   default: `null`</sup>
 
 * **`into`**  
-  <sup>type: String|null</sup>  
-  <sup>default: `null`</sup>  
-  Same as `--inject into <target document>`
+  Same as `--inject into <target document>`  
+  <sup>type: String|null   •   default: `null`</sup>
 
 * **`cwd`**  
-  <sup>type: String</sup>  
-  <sup>default: `process.cwd()`</sup>  
-  If the target document’s path is relative, we’ll look for it here.
+  If the target document’s path is relative, we’ll look for it here.  
+  <sup>type: String   •   default: `process.cwd()`</sup>
 
 
 **Example:**
