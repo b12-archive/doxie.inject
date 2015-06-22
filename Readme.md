@@ -51,18 +51,6 @@ A plugin for *[doxie][]*.
 Installation
 ------------
 
-```sh
-$ npm install doxie.inject
-```
-
-
-
-
-Usage
------
-
-###  Install  ###
-
 `doxie --inject` is a plugin for the command-line tool *[doxie][]*. Most plugins work well with *[dox][]* data. Install all three if you haven’t already:
 
 ```sh
@@ -72,15 +60,17 @@ $ npm install --global dox doxie doxie.inject
 [dox]:               http://npm.im/dox
 
 
+
+
+Usage
+-----
+
+
 <a                                               id="/usage/write-a-readme"></a>
-###  Write a readme…  ###
-
-…or some other document in Markdown or HTML. Put the markers `<!-- @doxie.inject start -->` and `<!-- @doxie.inject end -->` somewhere in it.
+**Write a readme** or some other document in Markdown or HTML. Put the markers `<!-- @doxie.inject start -->` and `<!-- @doxie.inject end -->` somewhere in it.
 
 
-###  Profit!  ###
-
-Render your docs with `doxie` – we’ll use [`doxie --render`] for that. Then `--inject` them into your readme.
+**Profit!** Render your docs with `doxie` – we’ll use [`doxie --render`] for that. Then `--inject` them into your readme.
 
 ```sh
 $ dox | doxie --render --inject
@@ -92,9 +82,7 @@ We’ll join your docs into one string and replace all content between the [mark
 [markers]:           #/usage/write-a-readme
 
 
-###  Options  ###
-
-You can customize things with options:
+**Options!** You can set things up with options:
 
     $ doxie --inject( <option> <argument>)*
 
@@ -103,9 +91,9 @@ For example:
     $ doxie --inject as public into 'My docs.md'
 
 
-<h4                                                            id="/as"><pre><b>
+<h3                                                               id="/as"><pre>
 --inject as &lt;marker name&gt;
-</b></pre></h4>
+</pre></h4>
 
 Apart from the [default markers][markers] you can have named markers. This way you can inject different docs at different places.
 
@@ -116,9 +104,9 @@ Then inject your docs:
     $ doxie --inject as my-marker
 
 
-<h4                                                          id="/into"><pre><b>
+<h3                                                             id="/into"><pre>
 --inject into &lt;target document&gt;
-</b></pre></h4>
+</pre></h4>
 
 By default we’ll inject your docs into `README.md`, `Readme.md`, or `readme.md` in the current working directory. But if you want another target, no problem:
 
