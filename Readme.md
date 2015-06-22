@@ -65,16 +65,15 @@ $ npm install --global dox doxie doxie.inject
 Usage
 -----
 
-
-*&nbsp;*
-
 <a                                               id="/usage/write-a-readme"></a>
-**Write a readme** or some other document in Markdown or HTML. Put the markers `<!-- @doxie.inject start -->` and `<!-- @doxie.inject end -->` somewhere in it.
+1) **Write a readme**
+
+…or some other document in Markdown or HTML. Put the markers `<!-- @doxie.inject start -->` and `<!-- @doxie.inject end -->` somewhere in it.
 
 
-*&nbsp;*
+2) **Profit!**
 
-**Profit!** Render your docs with `doxie` – we’ll use [`doxie --render`] for that. Then `--inject` them into your readme.
+Render your docs with `doxie` – we’ll use [`doxie --render`] for that. Then `--inject` them into your readme.
 
 ```sh
 $ dox | doxie --render --inject
@@ -86,18 +85,24 @@ We’ll join your docs into one string and replace all content between the [mark
 [markers]:           #/usage/write-a-readme
 
 
-*&nbsp;*
+3) **Options!**
 
-**Options!** You can set things up with options:
+You can set things up with options:
 
-    $ doxie --inject( <option> <argument>)*
+    --inject( <option> <argument>)*
 
 For example:
 
-    $ doxie --inject as public into 'My docs.md'
+    $ doxie --render \
+    $   --inject into 'My docs.md' as public
+
+Read on!
 
 
-*&nbsp;*
+
+
+Options
+-------
 
 <h3                                                               id="/as"><pre>
 --inject as &lt;marker name&gt;
@@ -111,8 +116,6 @@ Then inject your docs:
 
     $ doxie --inject as my-marker
 
-
-*&nbsp;*
 
 <h3                                                             id="/into"><pre>
 --inject into &lt;target document&gt;
