@@ -151,11 +151,11 @@ inject({input, [as]})
 **Input properties:**
 
 * **`input`**  
-  <sup>type: String | required</sup>  
+  <sup>type: `String` | required</sup>  
   The content of a readme – or another Markdown / HTML document.
 
 * **`as`**  
-  <sup>type: String|null | optional | default: `null`</sup>  
+  <sup>type: `String` or `null` | optional | default: `null`</sup>  
   Same as `--inject as <marker name>`.
 
 
