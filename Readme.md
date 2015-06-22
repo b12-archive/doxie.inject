@@ -117,7 +117,7 @@ Then inject your docs:
     $ doxie --inject as my-marker
 
 
-***
+&nbsp;
 
 
 <h3                                                             id="/into"><pre>
@@ -168,7 +168,7 @@ inject({input, [as]})
   Pass this to *[doxie-core][]*.
 
 
-***
+&nbsp;
 
 
 <h3                                                           id="/plugin"><pre>
