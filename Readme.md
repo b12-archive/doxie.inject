@@ -51,7 +51,7 @@ A plugin for *[doxie][]*.
 Installation
 ------------
 
-`doxie --inject` is a plugin for the command-line tool *[doxie][]*. Most plugins work well with *[dox][]* data. Install all three if you haven’t already:
+`doxie --inject` is a plugin for the command-line tool *[doxie][]*. *[dox][]* produces compatible data from jsDoc comments. Install all three if you haven’t already:
 
 ```sh
 $ npm install --global dox doxie doxie.inject
@@ -155,10 +155,6 @@ inject([{as, into, cwd}])
   <sup>type: String|null • default: `null`</sup>  
   Same as `--inject into <target document>`
 
-* **`cwd`**  
-  <sup>type: String • default: `process.cwd()`</sup>  
-  If the target document’s path is relative, we’ll look for it here.
-
 
 **Example:**
 
@@ -172,7 +168,6 @@ doxie([
   inject({
     as: 'my-marker',
     into: './My docs.md',
-    cwd: __dirname,
   }),
 ])([/* my docs’ data */]);
 ```
