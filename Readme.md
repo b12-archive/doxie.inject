@@ -140,20 +140,31 @@ $ npm install doxie-core doxie.inject
 Use it like this:
 
 <h3><pre>
-inject([{as, into, cwd}])
+inject({input, [as]})
   → plugin
+    → {['doxie.render']: {output}, …}
 </pre></h3>
 
 
-**Options:**
+**Parameter properties:**
+
+* **`input`**  
+  <sup>type: String • required</sup>  
+  The content of a readme – or another Markdown/HTML document.
 
 * **`as`**  
   <sup>type: String|null • default: `null`</sup>  
-  Same as `--inject as <marker name>`
+  Same as `--inject as <marker name>`.
 
-* **`into`**  
-  <sup>type: String|null • default: `null`</sup>  
-  Same as `--inject into <target document>`
+
+**`plugin` return properties:**
+
+* **`['doxie.render'].output`**  
+  <sup>type: String</sup>  
+  The resulting content of the readme – with your docs injected.
+
+* **`…`**  
+  Other properties required by *[doxie-core][]*.
 
 
 **Example:**
