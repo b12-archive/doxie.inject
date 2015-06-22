@@ -73,7 +73,7 @@ Usage
 
 2) **Profit!**
 
-Render your docs with `doxie` – we’ll use [`doxie --render`] for that. Then `--inject` them into your readme.
+Render your docs with `doxie` – here we use [`doxie --render`] for that. Then `--inject` them into your readme.
 
 ```sh
 $ dox | doxie --render --inject
