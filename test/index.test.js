@@ -17,14 +17,14 @@ test(title('Injects docs between default markers'), (is) => {
   is.equal(
     result(
 `My header
-<!-- doxie.inject start -->
+<!-- @doxie.inject start -->
 (should be replaced)
-<!-- doxie.inject end -->
+<!-- @doxie.inject end -->
 My footer
 `
     ),
 `My header
-<!-- doxie.inject start -->abcdef<!-- doxie.inject end -->
+<!-- @doxie.inject start -->abcdef<!-- @doxie.inject end -->
 My footer
 `
     ,
@@ -33,13 +33,13 @@ My footer
 
   is.equal(
     result(
-`<!--doxie.inject\tstart
+`<!--@doxie.inject\tstart
 -->
 (should be replaced)
-<!--    doxie.inject\t  \n\nend\t\t-->`
+<!--    @doxie.inject\t  \n\nend\t\t-->`
     ),
-`<!--doxie.inject\tstart
--->abcdef<!--    doxie.inject\t  \n\nend\t\t-->`
+`<!--@doxie.inject\tstart
+-->abcdef<!--    @doxie.inject\t  \n\nend\t\t-->`
     ,
     'keeping all odd whitespace'
   );
@@ -51,14 +51,14 @@ My footer
   );
 
   is.equal(
-    result('stuff <!-- doxie.inject start --> stuff'),
-    'stuff <!-- doxie.inject start --> stuff',
+    result('stuff <!-- @doxie.inject start --> stuff'),
+    'stuff <!-- @doxie.inject start --> stuff',
     '…or if the end marker isn’t there, …'
   );
 
   is.equal(
-    result('stuff <!-- doxie.inject end --> stuff'),
-    'stuff <!-- doxie.inject end --> stuff',
+    result('stuff <!-- @doxie.inject end --> stuff'),
+    'stuff <!-- @doxie.inject end --> stuff',
     '…or if the start marker isn’t there'
   );
 
