@@ -172,7 +172,7 @@ plugin(…)
 
 **Output properties:**
 
-* **`['doxie.render'].output`**  
+* **`['doxie.inject'].output`**  
   <sup>type: `String`</sup>  
   The resulting content of the readme – with your docs injected.
 
@@ -190,10 +190,46 @@ const inject = require('doxie.inject');
 doxie([
   render(require('./.doxie.render.js')),
   inject({
-    as: 'my-marker',
-    into: './My docs.md',
+    input:
+`#  My readme  #
+
+##  Usage  ##
+<!-- doxie.input start usage -->
+(this will be replaced)
+<!-- doxie.input end usage -->
+
+##  License  ##
+[MIT](http://opensource.org/licenses/MIT)
+`,
+    as: 'usage',
   }),
 ])([/* my docs’ data */]);
+//» {
+//    'doxie.inject': {output: "
+//      #  My readme  #
+//      
+//      ##  Usage  ##
+//      <!-- doxie.input start usage -->
+//      
+//      ###  myFancyFunction(a, b, c)  ###
+//      
+//      Parameters:
+//      
+//      * a
+//      * b
+//      * c
+//      
+//      Return value:
+//      
+//      * d
+//      <!-- doxie.input end usage -->
+//      
+//      ##  License  ##
+//      [MIT](http://opensource.org/licenses/MIT)
+//    "},
+//    …
+//  }
+
 ```
 
 
