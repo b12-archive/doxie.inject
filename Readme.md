@@ -210,9 +210,9 @@ doxie([
 `#  My readme  #
 
 ##  Usage  ##
-<!-- doxie.input start usage -->
+<!-- @doxie.input start usage -->
 (this will be replaced)
-<!-- doxie.input end usage -->
+<!-- @doxie.input end usage -->
 
 ##  License  ##
 [MIT](http://opensource.org/licenses/MIT)
@@ -225,7 +225,7 @@ doxie([
 //      #  My readme  #
 //      
 //      ##  Usage  ##
-//      <!-- doxie.input start usage -->
+//      <!-- @doxie.input start usage -->
 //      
 //      ###  myFancyFunction(a, b, c)  ###
 //      
@@ -238,7 +238,7 @@ doxie([
 //      Return value:
 //      
 //      * d
-//      <!-- doxie.input end usage -->
+//      <!-- @doxie.input end usage -->
 //      
 //      ##  License  ##
 //      [MIT](http://opensource.org/licenses/MIT)
