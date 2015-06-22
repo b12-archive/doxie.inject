@@ -75,7 +75,7 @@ $ npm install --global dox doxie doxie.inject
 <a                                               id="/usage/write-a-readme"></a>
 ###  Write a readme…  ###
 
-…or some other document in Markdown or HTML. Put the markers `&lt;!-- @doxie.inject start -->` and `&lt;!-- @doxie.inject end -->` somewhere in it.
+…or some other document in Markdown or HTML. Put the markers `<!-- @doxie.inject start -->` and `<!-- @doxie.inject end -->` somewhere in it.
 
 
 ###  Profit!  ###
@@ -104,12 +104,12 @@ For example:
 
 
 <h4                                                               id="/as"><pre>
---inject as &lt;marker name>
+--inject as &lt;marker name&gt;
 </pre></h4>
 
 Apart from the [default markers][markers] you can have named markers. This way you can inject different docs at different places.
 
-Put them in your readme: <code>&lt;!-- @doxie.inject start <b>my-marker</b> --></code> and <code>&lt;!-- @doxie.inject end <b>my-marker</b> --></code>.
+Put them in your readme: `<!-- @doxie.inject start my-marker -->` and `<!-- @doxie.inject end my-marker -->`.
 
 Then inject your docs:
 
@@ -117,7 +117,7 @@ Then inject your docs:
 
 
 <h4                                                             id="/into"><pre>
---inject into &lt;target document>
+--inject into &lt;target document&gt;
 </pre></h4>
 
 By default we’ll inject your docs into `README.md`, `Readme.md`, or `readme.md` in the current working directory. But if you want another target, no problem:
@@ -152,12 +152,12 @@ inject([{as, into, cwd}])
 * **`as`**  
   *type: String|null*  
   *default: `null`*  
-  Same as `--inject as &lt;marker name>`
+  Same as `--inject as <marker name>`
 
 * **`into`**  
   *type: String|null*  
   *default: `null`*  
-  Same as `--inject into &lt;target document>`
+  Same as `--inject into <target document>`
 
 * **`cwd`**  
   *type: String*  
