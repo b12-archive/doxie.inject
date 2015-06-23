@@ -59,29 +59,95 @@ My footer
   is.end();
 });
 
+test(title('Works with named markers'), (is) => {
+  const result = (params) => inject(params)(dummyData)['doxie.inject'].output;
+
+  is.equal(
+    result({
+      input:
+`My header
+<!-- @doxie.inject start my-marker -->
+(should be replaced)
+<!-- @doxie.inject end my-marker -->
+My footer
+`
+      ,
+      as: 'my-marker',
+    }),
+`My header
+<!-- @doxie.inject start my-marker -->abcdef<!-- @doxie.inject end my-marker -->
+My footer
+`
+    ,
+    'in the obvious case'
+  );
+
+  is.equal(
+    result({
+      input:
+`<!-- @doxie.inject start ẃïłd’ŝnöwmąn⛄ -->
+<!-- @doxie.inject end ẃïłd’ŝnöwmąn⛄ -->
+`
+      ,
+      as: 'ẃïłd’ŝnöwmąn⛄',
+    }),
+`<!-- @doxie.inject start ẃïłd’ŝnöwmąn⛄ -->abcdef<!-- @doxie.inject end ẃïłd’ŝnöwmąn⛄ -->
+`
+    ,
+    'when the markers have wild unicode characters'
+  );
+
+  is.end();
+});
+
 test(title('Fails gracefully when the input content is wrong'), (is) => {
   const result = (input) => inject({input})(dummyData);
   const results = [];
+  let input;
 
-  results.push(result('My readme'));
+  results.push(result(
+    input = 'My readme'
+  ));
   is.equal(
     last(results)['doxie.inject'].output,
-    'My readme',
-    'not changing anything if there are no markers in the readme, …'
+    input,
+    'when there are no markers in the readme'
   );
 
-  results.push(result('stuff <!-- @doxie.inject start --> stuff'));
+  results.push(result(
+    input = 'stuff <!-- @doxie.inject start --> stuff'
+  ));
   is.equal(
     last(results)['doxie.inject'].output,
-    'stuff <!-- @doxie.inject start --> stuff',
-    '…or if the end marker isn’t there, …'
+    input,
+    'when the default end marker isn’t there'
   );
 
-  results.push(result('stuff <!-- @doxie.inject end --> stuff'));
+  results.push(result(
+    input = 'stuff <!-- @doxie.inject end my-marker --> stuff'
+  ));
   is.equal(
     last(results)['doxie.inject'].output,
-    'stuff <!-- @doxie.inject end --> stuff',
-    '…or if the start marker isn’t there'
+    input,
+    'when a named start marker isn’t there'
+  );
+
+  results.push(result(
+    input = '<!-- @doxie.inject start my marker --><!-- @doxie.inject end my marker -->'
+  ));
+  is.equal(
+    last(results)['doxie.inject'].output,
+    input,
+    'when marker names have whitespace in them'
+  );
+
+  results.push(result(
+    input = '<!-- @doxie.inject start my-marker --><!-- @doxie.inject end other-marker -->'
+  ));
+  is.equal(
+    last(results)['doxie.inject'].output,
+    input,
+    'when marker names don’t match'
   );
 
   is.ok(
