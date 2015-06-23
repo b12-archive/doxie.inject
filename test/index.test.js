@@ -85,3 +85,19 @@ test(title('Fails gracefully when the input content is wrong'), (is) => {
 
   is.end();
 });
+
+test(title('Fails gracefully when parameters are wrong'), (is) => {
+  is.throws(
+    () => inject(),
+    /wrong parameters/i,
+    'when called without parameters'
+  );
+
+  is.throws(
+    () => inject({no: 'input'}),
+    /wrong parameters/i,
+    'when called without `parameters.input`'
+  );
+
+  is.end();
+});
