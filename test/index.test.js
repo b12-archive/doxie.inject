@@ -10,13 +10,13 @@ const last = require('1-liners/last');
 const property = curry(require('1-liners/property'));
 const match = curry(require('1-liners/match'));
 
-const dummyData = dummyOutput([
+const dummyInput = dummyOutput([
   'abc\n',
   'def\n',
 ]);
 
 test(title('Injects docs between default markers'), (is) => {
-  const result = (input) => inject({input})(dummyData)['doxie.inject'].output;
+  const result = (input) => inject({input})(dummyInput)['doxie.inject'].output;
 
   is.equal(
     result(
@@ -75,7 +75,7 @@ def
 });
 
 test(title('Works with named markers'), (is) => {
-  const result = (params) => inject(params)(dummyData)['doxie.inject'].output;
+  const result = (params) => inject(params)(dummyInput)['doxie.inject'].output;
 
   is.equal(
     result({
@@ -126,7 +126,7 @@ def
 });
 
 test(title('Fails gracefully when the input content is wrong'), (is) => {
-  const result = (input) => inject({input})(dummyData);
+  const result = (input) => inject({input})(dummyInput);
   const results = [];
   let input;
 
