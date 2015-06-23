@@ -214,8 +214,7 @@ doxie([
 (this will be replaced)
 <!-- @doxie.input end usage -->
 
-##  License  ##
-[MIT](http://opensource.org/licenses/MIT)
+##  License: MIT  ##
 `,
     as: 'usage',
   }),
@@ -240,8 +239,7 @@ doxie([
 //      * d
 //      <!-- @doxie.input end usage -->
 //      
-//      ##  License  ##
-//      [MIT](http://opensource.org/licenses/MIT)
+//      ##  License: MIT  ##
 //    "},
 //    …
 //  }
