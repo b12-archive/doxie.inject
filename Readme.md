@@ -161,7 +161,7 @@ inject({input, [as]})
   → plugin
 </pre></h3>
 
-**Parameters (properties of an object):**
+**Parameters** (properties of an object):
 
 * **`input`**  
   <sup>type: `String` (or cast to `String`) | required</sup>  
