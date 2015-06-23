@@ -6,6 +6,16 @@ const assign = require('object-assign');
 const prefix = _prefix('doxie.input');
 const injectError = require('tiny-error')({prefix});
 
+const header =
+  '<!-- Don’t remove or change the comment above – that can break automatic ' +
+  'updates. -->'
+;
+
+const footer =
+  '<!-- Don’t remove or change the comment below – that can break automatic' +
+  ' updates. More info at <http://npm.im/doxie.inject>. -->'
+;
+
 export default ({
   input,
   as = null,  /* jshint ignore: line */
@@ -43,9 +53,12 @@ export default ({
         '-->` in your document.'
       };
     } else {
-      output = input.replace(
-        betweenMarkers,
-        `$1${data.docs.map(property('output')).join('')}$2`
+      output = input.replace(betweenMarkers,
+        '$1\n' +
+        header + '\n' +
+        data.docs.map(property('output')).join('') +
+        footer + '\n' +
+        '$2'
       );
     }
 
