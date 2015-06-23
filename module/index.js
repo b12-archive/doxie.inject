@@ -1,12 +1,16 @@
-import _message from './tools/message';
+import _prefix from './tools/prefix';
 
 const curry = require('1-liners/curry');
 const property = curry(require('1-liners/property'));
 const assign = require('object-assign');
-const message = _message('doxie.input');
+const prefix = _prefix('doxie.input');
+const injectError = require('tiny-error')({prefix});
 
-export default ({input}) => {
-  // TODO: Check input
+export default ({input} = {}) => {
+  if (typeof input === 'undefined') throw injectError(
+    'Wrong parameters. Pass an `{Object} parameters` with a `{String} ' +
+    'parameters.input`.'
+  );
 
   const betweenMarkers =
     /(<!--\s*@doxie\.inject\s+start\s*-->)[^]*(<!--\s*@doxie\.inject\s+end\s*-->)/g
@@ -18,11 +22,11 @@ export default ({input}) => {
 
     if (!betweenMarkers.test(input)) {
       output = input;
-      error = {error: message(
-        'Warning: Markers not found. Make sure you have a `<!-- ' +
+      error = {error:
+        prefix + 'Warning: Markers not found. Make sure you have a `<!-- ' +
         '@doxie.inject start -->` followed by a `<!-- @doxie.inject end ' +
         '-->` in your document.'
-      )};
+      };
     } else {
       output = input.replace(
         betweenMarkers,
