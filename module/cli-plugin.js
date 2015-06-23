@@ -32,7 +32,10 @@ export default (...args) => {
 
     // Read and process the document.
     const input = readFileSync(filePath, {encoding: 'utf8'});
-    const result = inject({input})(data);
+    const result = inject({
+      input,
+      as: defined(options.as, null),
+    })(data);
 
     // Overwrite the document.
     writeFileSync(filePath, result['doxie.inject'].output);
