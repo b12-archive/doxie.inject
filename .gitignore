@@ -3,6 +3,10 @@
 # ====================
 #
 
+# - Just for testing
+*.backup
+*.temporary
+
 # - Built files
 /*.js
 !/module.js
