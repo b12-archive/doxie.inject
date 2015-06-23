@@ -11,8 +11,8 @@ const property = curry(require('1-liners/property'));
 const match = curry(require('1-liners/match'));
 
 const dummyData = dummyOutput([
-  'abc',
-  'def',
+  'abc\n',
+  'def\n',
 ]);
 
 test(title('Injects docs between default markers'), (is) => {
@@ -28,7 +28,12 @@ My footer
 `
     ),
 `My header
-<!-- @doxie.inject start -->abcdef<!-- @doxie.inject end -->
+<!-- @doxie.inject start -->
+<!-- Don’t remove or change the comment above – that can break automatic updates. -->
+abc
+def
+<!-- Don’t remove or change the comment below – that can break automatic updates. More info at <http://npm.im/doxie.inject>. -->
+<!-- @doxie.inject end -->
 My footer
 `
     ,
@@ -43,7 +48,12 @@ My footer
 <!--    @doxie.inject\t  \n\nend\t\t-->`
     ),
 `<!--@doxie.inject\tstart
--->abcdef<!--    @doxie.inject\t  \n\nend\t\t-->`
+-->
+<!-- Don’t remove or change the comment above – that can break automatic updates. -->
+abc
+def
+<!-- Don’t remove or change the comment below – that can break automatic updates. More info at <http://npm.im/doxie.inject>. -->
+<!--    @doxie.inject\t  \n\nend\t\t-->`
     ,
     'keeping all odd whitespace'
   );
@@ -52,7 +62,12 @@ My footer
     result({
       toString: () => '<!-- @doxie.inject start --><!-- @doxie.inject end -->'
     }),
-    '<!-- @doxie.inject start -->abcdef<!-- @doxie.inject end -->',
+    `<!-- @doxie.inject start -->
+<!-- Don’t remove or change the comment above – that can break automatic updates. -->
+abc
+def
+<!-- Don’t remove or change the comment below – that can break automatic updates. More info at <http://npm.im/doxie.inject>. -->
+<!-- @doxie.inject end -->`,
     'casting the `input` to string'
   );
 
@@ -75,7 +90,12 @@ My footer
       as: 'my-marker',
     }),
 `My header
-<!-- @doxie.inject start my-marker -->abcdef<!-- @doxie.inject end my-marker -->
+<!-- @doxie.inject start my-marker -->
+<!-- Don’t remove or change the comment above – that can break automatic updates. -->
+abc
+def
+<!-- Don’t remove or change the comment below – that can break automatic updates. More info at <http://npm.im/doxie.inject>. -->
+<!-- @doxie.inject end my-marker -->
 My footer
 `
     ,
@@ -91,7 +111,12 @@ My footer
       ,
       as: 'ẃïłd’ŝnöwmąn⛄',
     }),
-`<!-- @doxie.inject start ẃïłd’ŝnöwmąn⛄ -->abcdef<!-- @doxie.inject end ẃïłd’ŝnöwmąn⛄ -->
+`<!-- @doxie.inject start ẃïłd’ŝnöwmąn⛄ -->
+<!-- Don’t remove or change the comment above – that can break automatic updates. -->
+abc
+def
+<!-- Don’t remove or change the comment below – that can break automatic updates. More info at <http://npm.im/doxie.inject>. -->
+<!-- @doxie.inject end ẃïłd’ŝnöwmąn⛄ -->
 `
     ,
     'when the markers have wild unicode characters'
