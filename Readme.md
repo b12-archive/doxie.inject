@@ -184,7 +184,7 @@ inject({input, [as]})
 
 <h3                                                           id="/plugin"><pre>
 plugin(…)
-  → {['doxie.render']: {output}, …}
+  → {['doxie.inject']: {output}, …}
 </pre></h3>
 
 **Returned properties:**
