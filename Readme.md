@@ -161,7 +161,7 @@ inject({input, [as]})
   → plugin
 </pre></h3>
 
-**Input properties:**
+**Parameters (properties of an object):**
 
 * **`input`**  
   <sup>type: `String` | required</sup>  
@@ -172,9 +172,10 @@ inject({input, [as]})
   Same as `--inject as <marker name>`.
 
 
-**Return value:**
+**Returned value:**
 
 * **[`plugin`](#/plugin)**  
+  <sup>type: `Function`</sup>  
   Pass this to *[doxie-core][]*.
 
 
@@ -186,7 +187,7 @@ plugin(…)
   → {['doxie.render']: {output}, …}
 </pre></h3>
 
-**Output properties:**
+**Returned properties:**
 
 * **`['doxie.inject'].output`**  
   <sup>type: `String`</sup>  
