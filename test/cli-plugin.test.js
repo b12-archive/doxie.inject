@@ -43,7 +43,6 @@ API
 
 <!-- @doxie.inject start -->
 <!-- Don’t remove or change the comment above – that can break automatic updates. -->
-
 ##  Function 1  ##
 
 ##  Function 2  ##
@@ -56,9 +55,10 @@ License
 
 [MIT](http://opensource.org/licenses/MIT)
 `
-  ,
-  'without parameters'
+    ,
+    'without parameters'
   );
+  cp('Readme.md.backup', 'Readme.md');
 
   process.cwd = originalCwd;
   is.end();
