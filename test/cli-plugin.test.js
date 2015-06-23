@@ -128,6 +128,40 @@ License
 
   cp('Docs.html.backup', 'Docs.html');
 
+  cp('Docs.html', 'Docs.html.backup');
+  cli('as', 'private', 'into', 'Docs.html')(dummyOutput([
+    '<h3>Function 1</h3>\n\n',
+    '<h3>Function 2</h3>\n\n',
+  ]));
+
+  is.equal(
+    read('Docs.html'),
+`<h1>My super-duper fancy docs</h1>
+
+<h2>Public API</h2>
+<!-- @doxie.inject start -->
+…
+<!-- @doxie.inject end -->
+
+<h2>Private API</h2>
+<!-- @doxie.inject start private -->
+<!-- Don’t remove or change the comment above – that can break automatic updates. -->
+<h3>Function 1</h3>
+
+<h3>Function 2</h3>
+
+<!-- Don’t remove or change the comment below – that can break automatic updates. More info at <http://npm.im/doxie.inject>. -->
+<!-- @doxie.inject end private -->
+
+<h2>License</h2>
+<p>MIT</p>
+`
+    ,
+    '`as` a custom marker, `into` a custom file'
+  );
+
+  cp('Docs.html.backup', 'Docs.html');
+
   process.cwd = originalCwd;
   is.end();
 });
