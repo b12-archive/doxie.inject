@@ -94,7 +94,7 @@ test(title('Fails gracefully when the input content is wrong'), (is) => {
   is.end();
 });
 
-test(title('Fails gracefully when parameters are wrong'), (is) => {
+test(title('Crashes and burns when parameters are wrong'), (is) => {
   is.throws(
     () => inject(),
     /wrong parameters/i,
