@@ -48,6 +48,14 @@ My footer
     'keeping all odd whitespace'
   );
 
+  is.equal(
+    result({
+      toString: () => '<!-- @doxie.inject start --><!-- @doxie.inject end -->'
+    }),
+    '<!-- @doxie.inject start -->abcdef<!-- @doxie.inject end -->',
+    'casting the `input` to string'
+  );
+
   is.end();
 });
 

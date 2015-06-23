@@ -12,6 +12,8 @@ export default ({input} = {}) => {
     'parameters.input`.'
   );
 
+  input = String(input);
+
   const betweenMarkers =
     /(<!--\s*@doxie\.inject\s+start\s*-->)[^]*(<!--\s*@doxie\.inject\s+end\s*-->)/g
   ;
