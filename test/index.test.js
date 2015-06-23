@@ -16,7 +16,9 @@ const dummyInput = dummyOutput([
 ]);
 
 test(title('Injects docs between default markers'), (is) => {
-  const result = (input) => inject({input})(dummyInput)['doxie.inject'].output;
+  const result = (input) => (
+    inject({input})(dummyInput)['doxie.inject'].output
+  );
 
   is.equal(
     result(
@@ -75,7 +77,9 @@ def
 });
 
 test(title('Works with named markers'), (is) => {
-  const result = (params) => inject(params)(dummyInput)['doxie.inject'].output;
+  const result = (params) => (
+    inject(params)(dummyInput)['doxie.inject'].output
+  );
 
   is.equal(
     result({
