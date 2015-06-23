@@ -1,6 +1,9 @@
+import _message from './tools/message';
+
 const curry = require('1-liners/curry');
 const property = curry(require('1-liners/property'));
 const assign = require('object-assign');
+const message = _message('doxie.input');
 
 export default ({input}) => {
   // TODO: Check input
@@ -15,11 +18,11 @@ export default ({input}) => {
 
     if (!betweenMarkers.test(input)) {
       output = input;
-      error = {error:
-        '[doxie --inject] Warning: Markers not found. Make sure you have a ' +
-        '`<!-- @doxie.inject start -->` followed by a `<!-- @doxie.inject ' +
-        'end -->` in your document.'
-      };
+      error = {error: message(
+        'Warning: Markers not found. Make sure you have a `<!-- ' +
+        '@doxie.inject start -->` followed by a `<!-- @doxie.inject end ' +
+        '-->` in your document.'
+      )};
     } else {
       output = input.replace(
         betweenMarkers,
