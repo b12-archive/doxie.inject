@@ -164,11 +164,11 @@ inject({input, [as]})
 **Parameters (properties of an object):**
 
 * **`input`**  
-  <sup>type: `String` (cast to `String` otherwise) | required</sup>  
+  <sup>type: `String` (or cast to `String`) | required</sup>  
   The content of a readme – or another Markdown / HTML document.
 
 * **`as`**  
-  <sup>type: `String` or `null` (cast to `String` otherwise) | optional | default: `null`</sup>  
+  <sup>type: `String` or `null` (or cast to `String`) | optional | default: `null`</sup>  
   Same as `--inject as <marker name>`.
 
 
