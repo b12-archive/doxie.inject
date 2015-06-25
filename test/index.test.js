@@ -76,6 +76,29 @@ def
   is.end();
 });
 
+test(title('Works with different doc output'), (is) => {
+  const result = (input, data) => (
+    inject({input})(data)['doxie.inject'].output
+  );
+
+  is.equal(
+    result(
+      '<!-- @doxie.inject start --><!-- @doxie.inject end -->',
+      dummyOutput(['hello\n', null, 'world\n'])
+    ),
+`<!-- @doxie.inject start -->
+<!-- Don’t remove or change the comment above – that can break automatic updates. -->
+hello
+world
+<!-- Don’t remove or change the comment below – that can break automatic updates. More info at <http://npm.im/doxie.inject>. -->
+<!-- @doxie.inject end -->`
+    ,
+    'ignoring docs with `null` output'
+  );
+
+  is.end();
+});
+
 test(title('Works with named markers'), (is) => {
   const result = (params) => (
     inject(params)(dummyInput)['doxie.inject'].output
